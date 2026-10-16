@@ -9,3 +9,6 @@ Profesor: Martín Céspedes Escuti
 Ayudante Instructor: Artemio Araya Day
 
 
+
+>
+<img width="400" height="900" alt="image" src="https://github.com/user-attachments/assets/d38c580f-70ba-4631-b989-f6ee15856f8b" />
