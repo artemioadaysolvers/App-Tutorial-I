@@ -1,0 +1,33 @@
+CALCULADORA SENCILLA KOTLIN - VERSION 1.1.1
+
+1. Extrae todo el ZIP en una carpeta nueva.
+2. En Android Studio, pulsa Open / Abrir.
+3. Abre CalculadoraSencillaKotlin, donde esta settings.gradle.kts.
+4. Espera a que termine la sincronizacion de Gradle (necesita Internet).
+5. Instala Android SDK Platform 36 y Build-Tools 35.0.0 si lo solicita.
+6. Usa JDK 17 o JDK 21 en la configuracion de Gradle.
+7. Elige la variante debug del modulo app.
+8. En Build, elige Generate Bundle(s) / APK(s) > Generate APK(s).
+9. El archivo para instalar en el telefono queda en:
+   app/build/outputs/apk/debug/app-debug.apk
+
+Instala app-debug.apk. No instales el APK que contiene androidTest.
+Para actualizar la anterior, firma con la misma clave de desarrollo.
+
+El contenedor Android esta en:
+app/src/main/kotlin/com/ejemplo/calculadorasencilla/MainActivity.kt
+
+HTML: estructura y botones.
+CSS: apariencia y adaptacion a la pantalla.
+JavaScript: calculos, interaccion y validaciones.
+Kotlin: funciones nativas, ventana, WebView y ciclo de vida Android.
+
+No hay archivos .java de la app. El JDK es una herramienta necesaria.
+Los scripts de configuracion de Gradle tambien usan Kotlin (.gradle.kts).
+No necesitas instalar Node.js ni Capacitor para compilar en Android Studio.
+No se ha compilado ni incluido ningun APK.
+
+Lee LEEME.md y CAMBIOS-1.1.1.md para mas detalles.
+
+Esta revision no tiene imports java.* en su codigo Kotlin.
+Esto no elimina codigo de origen Java del SDK ni de la plataforma Android.

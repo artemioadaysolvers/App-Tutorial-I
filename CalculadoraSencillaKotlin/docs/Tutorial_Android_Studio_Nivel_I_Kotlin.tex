@@ -1,0 +1,245 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\title{Aplicación móvil: Nivel I\\Tutorial de Android Studio desde cero}
+\author{Taller de Innovación y Emprendimiento Tecnológico\\Universidad Adolfo Ibáñez}
+\date{15 de octubre de 2026}
+
+\begin{document}
+\maketitle
+
+\section{Objetivo}
+
+Esta guía corresponde a la calculadora versión 1.1.1, con Kotlin para Android y HTML, CSS y JavaScript para la interfaz web. Este tutorial explica cómo instalar Android Studio en Windows, descargar los archivos del proyecto, configurar las herramientas de compilación, generar una calculadora para Android e instalarla en un teléfono.
+
+En Android, el archivo que se instala manualmente termina en \texttt{.apk}. La palabra \emph{app} significa aplicación; en este procedimiento no se genera un archivo con extensión \texttt{.app}.
+
+La calculadora utiliza HTML para su estructura, CSS para su presentación y JavaScript para las operaciones. El proyecto completo que acompaña a esta guía incluye un contenedor Android escrito en Kotlin. Kotlin gestiona la ventana, el WebView y el ciclo de vida de Android. JavaScript realiza los cálculos y responde a los botones; HTML define la estructura y CSS define la apariencia. No hay archivos de código Java de la app. El JDK sigue siendo una herramienta de compilación necesaria para Kotlin.
+
+\section{Material necesario}
+
+\begin{itemize}
+    \item Un ordenador Windows de 64 bits compatible con Android Studio.
+    \item Conexión a Internet para descargar las herramientas y sincronizar el proyecto por primera vez.
+    \item El proyecto completo de la calculadora, además del APK si ya existe uno.
+    \item Un teléfono Android y un medio para transferir archivos, por ejemplo un cable USB.
+\end{itemize}
+
+Para generar el APK no necesitas un emulador ni un teléfono conectado. Tampoco necesitas instalar Git si descargas el repositorio como ZIP.
+
+\section{Descargar e instalar Android Studio}
+
+Las instrucciones de instalación y los requisitos del equipo se encuentran en la documentación oficial.\footnote{\url{https://developer.android.com/studio/install}}
+
+\begin{enumerate}
+    \item Abre la página oficial de Android Studio:
+    \url{https://developer.android.com/studio}
+    \item Descarga la versión estable para Windows. Para una instalación sencilla, elige el instalador con extensión \texttt{.exe}.
+    \item Ejecuta el instalador y sigue sus indicaciones. Puedes conservar la carpeta de instalación propuesta.
+    \item Abre Android Studio al terminar. Si pregunta si deseas importar una configuración anterior y es tu primera instalación, elige no importarla.
+    \item En el asistente inicial, selecciona la instalación \textbf{Standard} si está disponible. Si utilizas una configuración personalizada, incluye el Android SDK.
+    \item Revisa las licencias y acéptalas si estás de acuerdo. Espera a que termine la descarga de los componentes y pulsa \textbf{Finish}.
+\end{enumerate}
+
+El SDK reúne las herramientas y las API necesarias para construir aplicaciones Android. No es necesario crear un proyecto nuevo en este momento.
+
+\section{Descargar el repositorio de GitHub}
+
+Repositorio del taller:
+
+\url{https://github.com/artemioadaysolvers/Aplicacion-Movil-Nivel-I}
+
+\begin{enumerate}
+    \item Abre el enlace anterior en tu navegador.
+    \item En la página del repositorio, pulsa \textbf{Code}.
+    \item Selecciona \textbf{Download ZIP}. Este procedimiento descarga una copia de los archivos de la rama seleccionada.\footnote{\url{https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives}}
+    \item Busca el ZIP en las descargas del ordenador.
+    \item Haz clic derecho y selecciona \textbf{Extraer todo}. Guarda los archivos en una carpeta local fácil de identificar.
+\end{enumerate}
+
+\subsection{Comprobar si están los archivos del proyecto}
+
+Al revisar la rama \texttt{main} el 15 de octubre de 2026, el repositorio contenía \texttt{README.md} y \texttt{app-debug.apk}. El APK permite instalar la aplicación, pero no contiene el proyecto editable para volver a compilarlo con este procedimiento.
+
+Para continuar con la compilación necesitas el código fuente completo. Puedes utilizar el archivo \texttt{CalculadoraSencillaKotlin\_AndroidStudio\_v1.1.1.zip}, entregado junto a este tutorial, y extraerlo en otra carpeta. Si posteriormente se incorpora el proyecto completo al repositorio, podrás obtenerlo directamente con \textbf{Download ZIP}.
+
+La carpeta correcta del proyecto de esta calculadora contiene, entre otros, estos elementos:
+
+\begin{verbatim}
+CalculadoraSencillaKotlin/
+    settings.gradle.kts
+    build.gradle.kts
+    gradle.properties
+    gradlew
+    gradlew.bat
+    gradle/wrapper/gradle-wrapper.jar
+    gradle/wrapper/gradle-wrapper.properties
+    app/build.gradle.kts
+    app/src/main/AndroidManifest.xml
+    app/src/main/assets/www/
+\end{verbatim}
+
+Si solamente encuentras un APK y un README, todavía falta el proyecto completo. No utilices la opción de analizar un APK como sustituto de abrir el código fuente.
+
+\section{Abrir el proyecto en Android Studio}
+
+\begin{enumerate}
+    \item En la pantalla inicial de Android Studio, pulsa \textbf{Open}. Si ya tienes otro proyecto abierto, utiliza \textbf{File > Open}.
+    \item Busca la carpeta extraída del proyecto completo.
+    \item Selecciona \textbf{CalculadoraSencillaKotlin}, la carpeta que contiene \texttt{settings.gradle.kts}, \texttt{build.gradle.kts} y \texttt{gradlew.bat}.
+    \item Abre el proyecto y espera a que Android Studio termine de reconocer sus archivos.
+\end{enumerate}
+
+No selecciones únicamente la carpeta \texttt{app} ni la carpeta \texttt{www}. Tampoco debes crear un proyecto vacío y copiar los archivos dentro de él.
+
+\section{Configurar el SDK y Java}
+
+Los pasos siguientes corresponden al proyecto completo versión 1.1.1. Sus versiones configuradas son Android Gradle Plugin 8.13.2, Kotlin 2.3.20, Gradle 8.13 y Android SDK 36. El complemento de Android 8.13 requiere como mínimo JDK 17.\footnote{\url{https://developer.android.com/build/releases/agp-8-13-0-release-notes}}
+
+\subsection{Instalar los componentes del SDK}
+
+\begin{enumerate}
+    \item Abre \textbf{Tools > SDK Manager}.
+    \item En \textbf{SDK Platforms}, selecciona \textbf{Android SDK Platform 36}, correspondiente a Android 16, si todavía no está instalada.
+    \item En \textbf{SDK Tools}, comprueba que estén instaladas las \textbf{Android SDK Platform-Tools}.
+    \item Instala también \textbf{Android SDK Build-Tools 35.0.0} si Android Studio lo solicita para este proyecto. Si necesitas seleccionar una versión específica, activa la vista de detalles de los paquetes.
+    \item Pulsa \textbf{Apply}, revisa las licencias y espera a que termine la instalación.
+\end{enumerate}
+
+La plataforma utilizada para compilar no tiene que coincidir con la versión del teléfono. Este proyecto establece Android 6.0 como versión mínima; puede instalarse en un teléfono con Android 15 aunque se compile con el SDK 36.\footnote{\url{https://developer.android.com/studio/intro/update#sdk-manager}}
+
+\subsection{Seleccionar el JDK para Gradle}
+
+\begin{enumerate}
+    \item Abre \textbf{File > Settings}.
+    \item Entra en \textbf{Build, Execution, Deployment > Build Tools > Gradle}.
+    \item En \textbf{Gradle JDK}, selecciona \textbf{JDK 17}. Si no está disponible, utiliza \textbf{Download JDK}, elige la versión 17 y completa la descarga.
+    \item Pulsa \textbf{Apply} y después \textbf{OK}.
+\end{enumerate}
+
+Esta configuración elige Java para la compilación del proyecto; no exige cambiar el Java con el que se inicia Android Studio.\footnote{\url{https://developer.android.com/build/jdks#gradle-jdk}}
+
+\section{Sincronizar el proyecto}
+
+\begin{enumerate}
+    \item Si aparece \textbf{Sync Now}, pulsa esa opción. También puedes utilizar \textbf{File > Sync Project with Gradle Files}.
+    \item Mantén Internet conectado mientras Gradle descarga los componentes necesarios.
+    \item Si aparece \textbf{Install missing SDK packages}, revisa e instala los componentes indicados.
+    \item Espera a que termine la sincronización. Si falla, revisa el mensaje de error antes de continuar.
+\end{enumerate}
+
+El proyecto incluye Gradle Wrapper, que selecciona y descarga la versión de Gradle indicada en sus archivos. No hace falta instalar Gradle por separado. Para esta calculadora tampoco se requieren Node.js, npm ni Capacitor.
+
+Conserva las versiones configuradas del proyecto durante esta primera compilación. Una sugerencia para actualizar herramientas no significa necesariamente que debas cambiarlas para generar el APK.
+
+\section{Generar el APK de la calculadora}
+
+\begin{enumerate}
+    \item Abre \textbf{View > Tool Windows > Build Variants} y selecciona \textbf{debug} para el módulo \textbf{app}.
+    \item En el menú superior, pulsa \textbf{Build}.
+    \item Selecciona \textbf{Generate Bundle(s) / APK(s)} y después \textbf{Generate APK(s)}. En otras versiones del IDE puede aparecer como \textbf{Build Bundle(s) / APK(s) > Build APK(s)}.
+    \item Espera a que finalice el proceso. La primera compilación puede tardar más porque descarga herramientas y prepara archivos.
+    \item Comprueba que el resultado indique \texttt{BUILD SUCCESSFUL}.
+\end{enumerate}
+
+Elige APK para instalar manualmente en el teléfono. Un Android App Bundle, con extensión \texttt{.aab}, corresponde a otro procedimiento de distribución. Para esta práctica, el APK de la variante \texttt{debug} ya queda firmado con una clave de desarrollo; no hace falta usar el asistente de firma de distribución.\footnote{\url{https://developer.android.com/build/build-for-release}}
+
+\section{Encontrar el archivo correcto}
+
+Al terminar, pulsa \textbf{Locate} en la notificación de Android Studio si aparece. También puedes buscar el resultado desde el Explorador de archivos de Windows, dentro de la carpeta del proyecto:
+
+\begin{verbatim}
+app/build/outputs/apk/debug/app-debug.apk
+\end{verbatim}
+
+El archivo que debes copiar al teléfono se llama \textbf{app-debug.apk}. Si aparece otro archivo llamado \texttt{app-debug-androidTest.apk}, ese es un paquete de pruebas y no es la calculadora que debes abrir.
+
+\texttt{BUILD SUCCESSFUL} confirma que la compilación terminó correctamente. Después debes instalar y abrir la aplicación para comprobar su funcionamiento.
+
+\section{Instalar y abrir la aplicación en el teléfono}
+
+\begin{enumerate}
+    \item Conecta el teléfono al ordenador mediante USB y elige \textbf{Transferencia de archivos} si el teléfono lo solicita.
+    \item Copia \texttt{app-debug.apk} a la carpeta \textbf{Descargas} del teléfono.
+    \item En el teléfono, abre \textbf{Archivos} y entra en \textbf{Descargas}.
+    \item Toca \texttt{app-debug.apk}. Si Android solicita permiso para instalar desde la aplicación Archivos, habilítalo para ese origen y vuelve al instalador.
+    \item Pulsa \textbf{Instalar}. Si actualizas la misma calculadora y el APK utiliza la misma clave de firma, puede aparecer \textbf{Actualizar}.
+    \item Espera a que termine y pulsa \textbf{Abrir}.
+\end{enumerate}
+
+Los nombres de los menús pueden variar entre fabricantes. En esta calculadora, el nombre visible es \textbf{Calculadora} y el icono tiene una calculadora blanca sobre fondo naranja.
+
+Para actualizarla, recompila el proyecto corregido y copia el APK recién generado. Si la versión anterior y la nueva utilizan claves de firma distintas, Android no permitirá sustituir una por otra como actualización directa.
+
+\section{Comprobar el funcionamiento}
+
+Después de abrir la calculadora, realiza estas pruebas:
+
+\begin{itemize}
+    \item Suma: $2+3=5$.
+    \item Resta: $9-4=5$.
+    \item Multiplicación: $6\times7=42$.
+    \item División: $8\div2=4$.
+    \item Decimales: $0{,}1+0{,}2=0{,}3$.
+    \item División entre cero: debe aparecer un mensaje de error sin cerrar la aplicación.
+\end{itemize}
+
+El botón \textbf{AC} borra la operación. La calculadora funciona sin conexión una vez instalada.
+
+\section{Problemas frecuentes}
+
+\subsection{La aplicación no aparece en el teléfono}
+
+Comprueba que instalaste \texttt{app-debug.apk}, sin \texttt{androidTest} en el nombre. Busca también \textbf{Calculadora} en la lista de aplicaciones del teléfono. Si todavía tienes abierta la confirmación de instalación, utiliza su botón \textbf{Abrir}.
+
+\subsection{No se encuentra el SDK o hay un error de Java}
+
+Si aparece \texttt{SDK location not found}, revisa la ubicación del Android SDK en Android Studio. Si falta la plataforma 36, instálala mediante \textbf{SDK Manager}. Si el error menciona la versión de Java, selecciona JDK 17 en los ajustes de Gradle y sincroniza de nuevo.
+
+\subsection{Aparece una advertencia sobre funciones obsoletas}
+
+Una advertencia de funciones obsoletas de Gradle no equivale por sí sola a una compilación fallida. Comprueba el resultado final: \texttt{BUILD SUCCESSFUL} indica éxito; \texttt{BUILD FAILED} requiere revisar el error correspondiente.
+
+\subsection{La calculadora se cierra al abrirse}
+
+Comprueba primero que compilaste el proyecto corregido versión 1.1.1 y que instalaste su APK nuevo. Si continúa cerrándose, obtén el registro del teléfono:
+
+\begin{enumerate}
+    \item Activa las \textbf{Opciones de desarrollador} y la \textbf{Depuración USB} del teléfono. La ubicación depende del fabricante; normalmente se habilitan pulsando varias veces el número de compilación en la información del dispositivo.
+    \item Conecta el teléfono mediante USB y autoriza la depuración para tu ordenador.\footnote{\url{https://developer.android.com/studio/run/device}}
+    \item En Android Studio, abre \textbf{View > Tool Windows > Logcat} y selecciona el teléfono conectado.
+    \item En la búsqueda de Logcat puedes escribir \texttt{package:mine is:crash} para filtrar cierres de las aplicaciones del proyecto abierto.
+    \item Abre la calculadora otra vez. Copia el error y su traza para identificar el punto que falla.\footnote{\url{https://developer.android.com/studio/debug/logcat}}
+\end{enumerate}
+
+\section{Modificar la calculadora y volver a compilar}
+
+En el proyecto completo, los archivos web están en:
+
+\begin{verbatim}
+app/src/main/assets/www/
+\end{verbatim}
+
+\begin{itemize}
+    \item \texttt{index.html}: estructura de la pantalla y botones.
+    \item \texttt{styles.css}: presentación y tamaños.
+    \item \texttt{engine.js}: operaciones de la calculadora.
+    \item \texttt{app.js}: interacción de los botones y el teclado.
+\end{itemize}
+
+Guarda los cambios, genera otra vez el APK y transfiere el archivo nuevo al teléfono. No basta con modificar los archivos del ordenador para que la aplicación instalada cambie.
+
+\section{Usar este archivo en Overleaf}
+
+Crea un proyecto mediante \textbf{New Project > Blank Project} y pega este código en \texttt{main.tex}. También puedes subir el archivo \texttt{.tex} al proyecto. No se necesitan imágenes, archivos externos ni una plantilla adicional.\footnote{\url{https://docs.overleaf.com/getting-started/your-first-project}}
+
+Este material se entrega como código fuente LaTeX, sin generar un PDF.
+
+\end{document}
