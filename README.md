@@ -1,6 +1,6 @@
 # Aplicacion-Movil-Nivel-I
 
-Tutorial Nivel 1 para desarrollar una calculadora como aplicación móvil para android con Kotlin, JavaScript, HTML y CSS.
+Tutorial Nivel 1 para desarrollar una calculadora como aplicación móvil para android con Kotlin, JavaScript, HTML y CSS utilizando WebView.
 
 Para Taller de Innovación y Emprendimiento Tecnológico, Universidad Adolfo Ibáñez
 
