@@ -1,6 +1,10 @@
 # CASIO fx-2200 · 1978
 
+<<<<<<< HEAD
 Aplicación Android adaptada a partir de la aplicación HP9100A aportada. Interfaz HTML/CSS/JavaScript en la clase AppView basada en WebView y motor científico Kotlin. No contiene archivos fuente Java. Las bibliotecas y APIs de Android se invocan desde Kotlin.
+=======
+Tutorial Nivel 1 para desarrollar una calculadora como aplicación móvil para android con Kotlin, JavaScript, HTML y CSS utilizando WebView.
+>>>>>>> 9deec97851ef4eccc6dd579a58785d34eec31a2f
 
 ## Abrir el proyecto
 
@@ -15,6 +19,7 @@ La primera sincronización necesita internet. La app ya instalada calcula y carg
 
 ## Organización
 
+<<<<<<< HEAD
 - Hoja 01: nombre, historia breve, características y acceso a fuentes.
 - Hoja 02: el archivo Casio_fx2200_mesh_0_6_copia1_corregido.glb aportado, con giro manual al arrastrar, acercamiento y restablecimiento de cámara.
 - Hoja 03: calculadora 2D con todas las teclas visibles. Ajuste automático a la altura disponible, sin desplazamiento. En horizontal, los bloques se distribuyen a ambos lados del visor.
@@ -68,3 +73,8 @@ Se retiraron exclusivamente los botones Examinar instrumento, Giro, Abrir calcul
 - Consultar fuentes en Historia abre exclusivamente la pestaña Fuentes. No muestra instrucciones de operación.
 - RAD, DEG, GRA y SD se seleccionan desde MODE en el propio instrumento; ya no hay selectores duplicados en Ajustes.
 - Sustituido el modelo por el archivo corregido aportado en esta revisión. Se copia íntegramente a assets/models/casio_fx2200.glb y la cámara se adapta a su nueva orientación.
+=======
+
+>
+<img width="400" height="900" alt="image" src="https://github.com/user-attachments/assets/d38c580f-70ba-4631-b989-f6ee15856f8b" />
+>>>>>>> 9deec97851ef4eccc6dd579a58785d34eec31a2f
