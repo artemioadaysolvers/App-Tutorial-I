@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e9dfca">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'">
+<title>CASIO fx-2200 · 1978</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="masthead"><button class="wordmark" data-page="intro" aria-label="Casio fx-2200, inicio">CASIO <span>fx-2200</span></button><span class="file-mark">INSTRUMENTOS DE CÁLCULO<br>EXPEDIENTE 02200 / JAPÓN</span></header>
+<nav class="tabs" aria-label="Secciones"><button data-page="intro" aria-current="page"><span>01</span> Historia</button><button data-page="exhibit"><span>02</span> Modelo 3D</button><button data-page="calculator"><span>03</span> Cálculo</button></nav>
+<main>
+<section id="intro" class="page" aria-labelledby="intro-title">
+  <div class="history-sheet">
+    <div class="document-line"><span>FICHA TÉCNICA E HISTÓRICA</span><span>N.º 02200</span></div>
+    <div class="history-heading"><p class="eyebrow">CASIO COMPUTER CO., LTD. / JAPÓN</p><h1 id="intro-title">CASIO <span>fx-2200</span></h1><p class="subtitle">CALCULADORA CIENTÍFICA · 1978</p></div>
+    <div class="history-copy"><h2>Antecedentes</h2><p>Comercializada en 1978, la fx-2200 pertenece a la generación de calculadoras científicas de bolsillo con pantalla de cristal líquido. Su teclado reúne funciones trigonométricas, logaritmos, potencias, fracciones y estadística.</p><p>Emparentada con la fx-2000, combina una pantalla de ocho cifras con memoria independiente. Las operaciones se introducen de forma secuencial; las funciones científicas se aplican al número mostrado.</p></div>
+    <dl class="specifications"><div><dt>Tipo</dt><dd>Científica de bolsillo</dd></div><div><dt>Visor</dt><dd>LCD · ocho cifras</dd></div><div><dt>Unidades</dt><dd>RAD / DEG / GRA</dd></div><div><dt>Registro</dt><dd>Memoria M / estadística SD</dd></div></dl>
+    <div class="sheet-bottom"><p>REFERENCIAS: documentación de época y ejemplares conservados.<br><button class="text-button" id="sources-button">Consultar fuentes →</button></p></div>
+  </div>
+</section>
+<section id="exhibit" class="page" hidden aria-labelledby="model-title">
+  <div class="section-heading"><div><p class="eyebrow">02 / EXAMEN DEL EJEMPLAR</p><h2 id="model-title">CASIO fx-2200</h2></div><span class="side-label">VISTA TRIDIMENSIONAL</span></div>
+  <div class="model-frame"><div class="corner top-left"></div><div class="corner bottom-right"></div><div id="scene" role="img" aria-label="Modelo tridimensional de la Casio fx-2200. Arrastre para girarlo."></div><p id="model-status" role="status">Modelo local preparado para su examen.</p><div class="model-tools"><button id="reset-camera">Restablecer vista</button></div></div>
+  <div class="page-bottom"><p>Arrastrar: girar. Pellizcar o rueda: acercar.</p></div>
+</section>
+<section id="calculator" class="page" hidden aria-labelledby="calc-title">
+  <div class="section-heading"><div><p class="eyebrow">03 / MESA DE CÁLCULO</p><h2 id="calc-title">Operación del instrumento</h2></div><button id="copy-result" class="small-button">Copiar resultado</button></div>
+  <div class="calc-workspace">
+    <aside class="operating-note"><span class="note-number">INSTRUCCIÓN / 01</span><h3>Entrada secuencial</h3><p>Introduzca el valor y después pulse la función.</p><p class="example">30 → sin<br>DEG: 0.5</p><p>El selector MODE recorre RAD, DEG, GRA y SD.</p><div class="note-rule"></div><p>INV activa las funciones inscritas debajo de las teclas. En SD, M+ registra datos.</p></aside>
+    <div id="machine-stage"><div id="machine" aria-label="Calculadora Casio fx-2200">
+      <div class="machine-brand"><button id="power" data-key="POWER" aria-label="Encender o apagar" title="Encender o apagar">I/O</button><div><strong>CASIO</strong><small>SCIENTIFIC CALCULATOR</small></div><span>fx-2200</span></div>
+      <div class="display-surround"><div class="lcd"><div class="annunciators"><span id="mode-indicator">RAD</span><span id="memory-indicator"></span><span id="prefix-indicator"></span><span id="pending-indicator"></span></div><output id="display" aria-live="polite" aria-label="Resultado">0</output></div></div>
+      <div id="scientific-keys" class="scientific-keys"></div><div id="numeric-keys" class="numeric-keys"></div>
+      <div class="machine-foot">CASIO COMPUTER CO., LTD. <span>fx-2200</span></div>
+    </div></div>
+    <aside class="register-note"><span class="note-number">REGISTRO / M</span><h3>Memoria</h3><output id="memory-value">0</output><p>M in: guardar.<br>MR: recuperar.<br>M+: acumular.</p><div class="note-rule"></div><span class="note-number">REGISTRO / SD</span><p>Datos: <output id="stat-count">0</output></p><button id="clear-stat" class="text-button">Borrar datos SD</button><button id="clear-memory" class="text-button">Borrar memoria M</button></aside>
+  </div>
+  <div class="calculation-strip"><p id="calculation-notice" role="status">Preparada. Introduzca el número antes de la función.</p><div class="calculation-actions"><button id="help-button" class="text-button">Manual de operación</button><button id="settings-button" class="text-button">Ajustes</button></div></div>
+</section>
+</main>
+<footer><span>ARCHIVO DE INSTRUMENTOS / 1978</span><span id="page-number">HOJA 01 / 03</span></footer>
+<dialog id="help-dialog" aria-labelledby="help-title"><div class="dialog-heading"><h2 id="help-title">Manual de operación</h2><button id="close-help" aria-label="Cerrar manual">Cerrar ×</button></div><nav id="manual-tabs" aria-label="Capítulos del manual"></nav><article id="manual-content"></article><div class="manual-pager"><button id="manual-prev">← Anterior</button><span id="manual-page"></span><button id="manual-next">Siguiente →</button></div></dialog>
+<dialog id="sources-dialog" aria-labelledby="sources-title"><div class="dialog-heading"><h2 id="sources-title">Fuentes documentales</h2><button id="close-sources" aria-label="Cerrar fuentes">Cerrar ×</button></div><nav id="sources-tabs" aria-label="Documentación histórica"><button aria-current="page">Fuentes</button></nav><article id="sources-content"></article></dialog>
+<dialog id="settings-dialog" aria-labelledby="settings-title"><div class="dialog-heading"><h2 id="settings-title">Ajustes</h2><button id="close-settings">Cerrar ×</button></div><div class="settings-content"><button id="haptic-toggle" aria-pressed="true">Respuesta táctil: sí</button><button id="sound-toggle" aria-pressed="true">Sonido: sí</button><button id="share-result">Compartir resultado</button><button id="mobile-clear-stat">Borrar datos SD</button><button id="mobile-clear-memory">Borrar memoria M</button></div></dialog>
+<div id="toast" role="status"></div><script type="module" src="app.js"></script>
+</body></html>
