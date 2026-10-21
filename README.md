@@ -1,7 +1,6 @@
 Tutorial para App Móviles I
 
-Tutoria para desarrollar aplicaciones en Android con JavaScript, HTML y CSS utilizando WebView. Kotlin se utiliza para
-acceder a las funcionalidades nativas del dispositivo.
+Tutorial para desarrollo de una aplicación móvil para Android que simula una calculadora Casio fx-2200 de finales de la década de 1970. La interfaz gráfica se desarrolla utilizando JavaScript, HTML y CSS integrados mediante WebView, mientras que Kotlin permite acceder a las funcionalidades nativas del dispositivo. La aplicación se compila y genera mediante Android Studio. Además, incorpora una representación tridimensional de la calculadora en formato .glb, visualizada de manera interactiva mediante Three.js.
 
 Profesor: Céspedes Escuti
 
